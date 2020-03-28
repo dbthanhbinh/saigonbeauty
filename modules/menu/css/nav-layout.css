@@ -1,0 +1,295 @@
+@font-face {
+	font-family: "icon-font";
+	src: url('../fonts/icon-font.eot');
+	src: url('../fonts/icon-font.eot?#iefix') format('eot'), url('../fonts/icon-font.woff') format('woff'), url('../fonts/icon-font.ttf') format('truetype'), url('../fonts/icon-font.svg#icon-font') format('svg');
+}
+
+.icon-desktop:before,
+.icon-menu-close:before,
+.icon-menu:before,
+.icon-mobile:before,
+.icon-submenu-down:before,
+.icon-submenu-right:before,
+.icon-world:before,
+header h1:before,
+.nav-button:before,
+.nav-close:before,
+.nav .nav-submenu > a:after,
+.nav > ul > .nav-submenu > a:after {
+	font-family: "icon-font";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: none;
+	vertical-align: top;
+}
+
+.icon-desktop:before {
+	content: "\E001";
+}
+
+.icon-menu-close:before {
+	content: "\E002";
+}
+
+.icon-menu:before {
+	content: "\E003";
+}
+
+.icon-mobile:before {
+	content: "\E004";
+}
+
+.icon-submenu-down:before {
+	content: "\E005";
+}
+
+.icon-submenu-right:before {
+	content: "\E006";
+}
+
+.icon-world:before {
+	content: "\E007";
+}
+
+header {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 901;
+	padding-left: 10px;
+	line-height: 4.4rem;
+	background: #26201C;
+	color: #A69A94;
+}
+
+header h1 {
+
+}
+
+header h1:before {
+	content: "\E004";
+	margin-right: 8px;
+}
+
+.nav-button,
+.nav-close {
+	position: fixed;
+	top: 0;
+	width: 45px;
+	height: 45px;
+	overflow: hidden;
+	z-index: 902;
+	cursor: pointer;
+	text-decoration: none;
+	line-height: 45px;
+	background: #067e8c;
+	color: #fff;
+}
+
+.nav-button:before,
+.nav-close:before {
+	display: block;
+	text-align: center;
+}
+
+.nav-button {
+	display: block;
+	right: 0;
+	font-size: 1.7rem;
+}
+
+.nav-button:before {
+	content: "\E003";
+}
+
+.nav-close {
+	display: none;
+	right: 4rem;
+	font-size: 1.9rem;
+}
+
+.nav-close:before {
+	content: "\E002";
+}
+
+.nav {
+	padding-top: 46px;
+	line-height: 40px;
+    min-width: 240px;	
+    color:#010101;
+}
+
+.nav ul {
+
+}
+
+.nav ul ul {
+	background: #2f2722;
+}
+
+.nav ul ul ul {
+	background: #382f29;
+}
+
+.nav ul ul ul ul {
+	background: #40362f;
+}
+
+.nav ul ul ul ul ul {
+	background: #493e36;
+}
+
+.nav li {
+	/*border-top: 1px solid #59544F;*/
+	cursor: pointer;
+}
+
+.nav li:hover > a,
+.nav li.nav-active > a {
+	color: #ff0000;
+	/*background: #ddd;*/
+}
+
+.nav .nav-submenu > ul {
+	margin-left: 10px;
+}
+
+.nav .nav-submenu > a {
+	padding-right: 30px !important;
+}
+
+.web-menu .nav li.menu-item-home a,
+.nav a,
+.nav a:hover,
+.nav a:active,
+.nav a:visited {
+	/*border-radius: 6px;*/
+	/*padding: 0 15px 1px;*/
+	text-decoration: none;    
+}
+
+.nav a a,
+.nav a a:hover,
+.nav a a:active,
+.nav a a:visited
+{color: #010101;}
+
+
+.nav .nav-submenu > a:after {
+	position: absolute;
+	display: block;
+	right: 10px;
+	top: 1px;
+	content: "\E005";
+}
+
+@media only screen and (min-width: 960px) {
+
+body {
+	padding: 0 !important;
+}
+
+header {
+	position: relative;
+}
+
+header h1:before {
+	content: "\E001";
+}
+
+.nav-button {
+	display: none;
+}
+
+.nav {
+	padding: 0 !important;
+}
+
+.nav > ul > li {
+	
+}
+
+.nav li > ul {
+	box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75);
+}
+
+.nav ul ul ul {
+	border-radius: 0 6px 6px 6px;
+}
+
+.nav ul ul ul li:first-child {
+	border-top: none;
+}
+
+.nav .nav-left > ul {
+	border-radius: 6px 0 6px 6px;
+}
+
+.nav .nav-submenu li {
+	min-width: 110px;
+}
+
+.nav .nav-submenu > ul {
+	margin: 0;
+}
+
+.nav > ul > .nav-submenu > a:after {
+	content: "\E005";
+}
+
+.nav .nav-submenu > a:after {
+	content: "\E006";
+}
+
+}
+
+@media (min-width: 980px) and (max-width: 1023px) {
+	
+	.wrapper{
+		width:980px;		
+	}
+	.web-menu ul li a {
+		padding: 0 9px;
+	}
+	.ms-cols-6 {
+		width: 48%;
+	}
+	.ms-cols-9
+	{
+		width:68.5%;
+	}
+}
+
+@media (max-width: 979px) {
+    .wrapper{
+		width:98%;		
+	}
+    
+    .web-menu ul li{
+        display: block;
+        border-top:1px dashed #c8eef9;
+    }
+    .web-menu ul li.menu-item-home{
+        padding-left: 10px;
+        position: relative;
+    }
+    
+    .web-menu ul li a{
+        color: #fff;
+    }
+    .web-menu ul li ul{
+        position: static;
+    }
+    
+    .web-menu ul li ul li a{
+        color: #010101;
+        border-left: none;
+    }
+    .nav .nav-submenu > ul{margin-left: 0; padding-left: 20px;}
+}
