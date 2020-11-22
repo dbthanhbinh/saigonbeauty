@@ -1,67 +1,373 @@
-    <!-- Footer -->
-    <?php
-    $customClient = false;
-    if($customClient){
-      require_once ('modules/owl-carousel/slide-client.php');
-    }
-    ?>
-    <?php
-      if(get_theme_mod('show_footer_layout')){
-        require_once ('modules/footer/footer.php');
-      }
-    ?>
-    <?php if(get_theme_mod('show_footer_copyright')) {?>
-      <div class="copy-right-box">
-        <div class="container">  
-          <div class="row">      
-            <div class="col-lg-12">
-              <div class="footer-copyright">
-                <span>
-                  <?= get_theme_mod('setting_copyright') ?>
-                </span>
-                <?php if ( has_nav_menu ( 'footer-menu' ) ) : ?>
-                <?php 
-                    $defaults = array(
-                        'theme_location'  => 'footer',
-                        'container'       => '',
-                        'container_class' => 'footer-menu',
-                        'container_id'    => 'footer-menu',
-                        'menu_class'      => 'footer-navbar',
-                        'echo'            => true,
-                        'fallback_cb'     => 'wp_page_menu',
-                        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                        'depth'           => 2,
-                        'walker'          => false // new menu_walker()
-                    );
-                    wp_nav_menu ($defaults); 
-                    ?>
-                <?php endif; ?>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <?php }?>
-    <?php wp_footer()?>
+			<div class="clear"></div>
 
-    <!-- For sticky sidebar -->
-    <script type="text/javascript">
-      if( $('#sidebar').length ) {
-        var sidebar = new StickySidebar('#sidebar', {
-            topSpacing: 50,
-            bottomSpacing: 50
-        });
-      }
-    </script>
+			<div class="web-line">
 
-      <?php
-      $showFacebookFanpage = get_theme_mod('show_face_fanpage_plugin');
-      if($showFacebookFanpage &&  $showFacebookFanpage == 1){
+				<div class="wrapper">
+
+					<span></span>
+
+				</div>
+
+			</div><div class="clear"></div>
+
+			
+
+			<!-- footer -->
+
+			<div id="wrapper-footer">
+
+				<div class="wrapper">
+
+					<div class="ms-cols-12">	
+
+						<div class="clear-line-10"></div>
+
+						<div class="ms-cols-6">
+
+							<div class="f-logo">
+							    <?php echo ws24h_tie_logo_footer();?>
+							</div>
+
+							<div class="f-info">
+
+								<h5>Copyright of SAIGON BEAUTY</h5>
+
+								<p>
+
+									<strong>Email:</strong> saigonbeautysgb@gmail.com
+
+								</p>
+								<p>
+								    <strong>Add:</strong> 43/4 Thanh Thai Stre., Ward 14, Dist 10, HCM City
+								</p>
+								<!--
+								<p>
+								    <strong>Responsible for content:</strong> 
+								</p>
+								-->
+
+							</div>
+
+						</div>
+
+						<div class="ms-cols-5">
+
+							<div class="f-tag-cloud">
+
+								<h5>Từ khóa tìm kiếm</h5>
+
+								<div class="testDiv-block-tag" id="testDiv-tag">
+
+                                <?php 
+
+                                $args = array(
+
+                                	'smallest'                  => 12, 
+
+                                	'largest'                   => 16,
+
+                                	'unit'                      => 'px', 
+
+                                	'number'                    => 45,  
+
+                                	'format'                    => 'flat',
+
+                                	'separator'                 => "\n",
+
+                                	'orderby'                   => 'name', 
+
+                                	'order'                     => 'ASC',
+
+                                	'exclude'                   => null, 
+
+                                	'include'                   => null,                                 
+
+                                	'link'                      => 'view', 
+
+                                	'taxonomy'                  => 'post_tag', 
+
+                                	'echo'                      => true,
+
+                                	'child_of'                  => null, // see Note!
+
+                                );
+
+                                wp_tag_cloud($args);?>
+
+                                </div>
+
+							</div>
+
+						</div>
+
+						<div class="clear-line-10"></div>
+
+					</div>
+
+				
+
+				</div>
+
+			</div>
+
+			<!-- End footer -->
+
+			
+
+			<!-- footer copyright-->
+
+			<div id="wrapper-copyright">
+
+				<div class="wrapper">
+
+					<div class="ms-cols-12">
+
+						<div class="site-copyright">
+
+							© SGB MEDIA GROUP 2015. All Rights Reserved.
+
+						</div>
+
+						<div style="display:none;" class="site-designby">
+
+							Thiết kế bởi: <a href="http://webseo24h.com">webseo24h.com</a>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- End footer copyright -->
+
+			
+
+		</div>
+
+		<div class="clear"></div>
+
+        
+
+        <?php 
+
+        if(tie_get_option('left-right-banner-slider')):        
+
+            dynamic_sidebar('left-slider');
+
+            dynamic_sidebar('right-slider');        
+
         ?>
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0"></script>
+
+            <script type="text/javascript">
+
+            
+
+                function left_right_init()
+
+                {
+
+                    var main_content_id = ".wrapper";
+
+                    var main_content_percent = 0;
+
+                    var left_right_space_percent = 0;
+
+                    var left_pos_percent = 0;
+
+                    var right_pos_percent = 0;
+
+                    var _fixed = "fixed";
+
+                    var _pos_top = 90;
+
+                    var _display = "block";
+
+                    var _minimum_size = 1200;
+
+                    
+
+                    var window_w = document.body.clientWidth;
+
+                    var window_main = $(main_content_id).width();
+
+                    var objAdDivLeft = document.getElementById("divAdLeft");
+
+                    var objAdDivRight = document.getElementById("divAdRight");
+
+                    
+
+                    main_content_percent = (window_main * 100)/window_w;
+
+                    left_right_space_percent = (100 - main_content_percent)/2;
+
+                    left_right_space_percent -= 0;
+
+                
+
+                    left_pos_percent = right_pos_percent = left_right_space_percent + main_content_percent;
+
+                
+
+                    if(objAdDivLeft)
+
+                    {
+
+                        right_pos_percent +=0.2;
+
+                        left_right_space_percent -= 0.3;
+
+                        objAdDivLeft.style.position = _fixed;
+
+                        objAdDivLeft.style.top = _pos_top + "px";
+
+                        objAdDivLeft.style.right = right_pos_percent + "%";
+
+                        objAdDivLeft.style.display = _display;
+
+                        objAdDivLeft.style.width = left_right_space_percent + "%"; 
+
+                    }
+
+                    
+
+                    if(objAdDivRight)
+
+                    {
+
+                        right_pos_percent +=0.2
+
+                        left_right_space_percent -= 0.3;
+
+                        objAdDivRight.style.position = _fixed;
+
+                        objAdDivRight.style.top = _pos_top + "px";
+
+                        objAdDivRight.style.left = right_pos_percent + "%";
+
+                        objAdDivRight.style.display = _display;
+
+                        objAdDivRight.style.width = left_right_space_percent + "%";
+
+                    }
+
+                }
+
+            
+
+                function left_right_fc()
+
+                {                  
+
+                    left_right_init();
+
+                    
+
+                    var objAdDivLeft = document.getElementById("divAdLeft");
+
+                    var objAdDivRight = document.getElementById("divAdRight");
+
+                    
+
+                    if (document.body.clientWidth < _minimum_size)
+
+        	        {
+
+        	            objAdDivRight.style.display = "none";
+
+        	            objAdDivLeft.style.display = "none";                    
+
+        	        }
+
+        	        else
+
+        	        {
+
+        	            objAdDivRight.style.display = "block";
+
+        	            objAdDivLeft.style.display = "block";                      
+
+        	        }                            
+
+                }
+
+                                      
+
+                // init left right fc
+
+                left_right_init();
+
+            
+
+                $(window).resize(function() {
+
+                    left_right_fc();
+
+                });
+
+    
+
+                //alert(right_pos_percent);
+
+            </script>
+
+        <?php endif;?>
+
         <?php
-      }
-      ?>
-  </body>
+
+        wp_footer();
+
+        ?>
+
+		
+
+        
+
+        <div id="fb-root"></div>
+
+        <script>(function(d, s, id) {
+
+          var js, fjs = d.getElementsByTagName(s)[0];
+
+          if (d.getElementById(id)) return;
+
+          js = d.createElement(s); js.id = id;
+
+          js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.0";
+
+          fjs.parentNode.insertBefore(js, fjs);
+
+        }(document, 'script', 'facebook-jssdk'));</script>  
+
+        
+
+        <!-- Social Google+ -->
+
+    	<!-- Place this tag after the last share tag. -->
+
+    	<script type="text/javascript">
+
+    	  window.___gcfg = {lang: 'vi'};
+
+    	
+
+    	  (function() {
+
+    	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+
+    	    po.src = 'https://apis.google.com/js/platform.js';
+
+    	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+
+    	  })();
+
+    	</script>
+
+        
+
+	</body>
+
+	
+
 </html>

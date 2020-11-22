@@ -1,8 +1,11 @@
 <?php
+
 /**
  * Add admin notices
  */
-function tie_admin_notices (){
+
+function tie_admin_notices() 
+{
 	global $current_user;
 	$userid = $current_user->ID;
 	
@@ -21,9 +24,11 @@ add_action( 'admin_notices', 'tie_admin_notices' );
  * Add user meta value when Dismiss link is clicked
  */
 
-function thsp_dismiss_admin_notice () {
+function thsp_dismiss_admin_notice() 
+{
 	global $current_user;
 	$userid = $current_user->ID;
+	
 	// If "Dismiss" link has been clicked, user meta field is added
 	if ( isset( $_GET['dismiss_me'] ) && 'yes' == $_GET['dismiss_me'] ) {
 		add_user_meta( $userid, 'ignore_sample_error_notice2', 'yes', true );
@@ -31,7 +36,10 @@ function thsp_dismiss_admin_notice () {
 }
 add_action( 'admin_init', 'thsp_dismiss_admin_notice' );
 
-if ( isset( $_GET['page'] ) && $_GET['page'] == 'panel' ) {
+
+
+if ( isset( $_GET['page'] ) && $_GET['page'] == 'panel' ) 
+{
 	function tie_enqueue_pointer_script_style( $hook_suffix ) {
 		$enqueue_pointer_script_style = false;
 		$dismissed_pointers = explode( ',', get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
@@ -49,8 +57,8 @@ if ( isset( $_GET['page'] ) && $_GET['page'] == 'panel' ) {
 	 
 	function tie_pointer_print_scripts() {
 		//<img src=\'".get_template_directory_uri()."/images/bullet_star.png\' alt=\'\' /><img src=\'".get_template_directory_uri()."/images/bullet_star.png\' alt=\'\' /><img src=\'".get_template_directory_uri()."/images/bullet_star.png\' alt=\'\' /><img src=\'".get_template_directory_uri()."/images/bullet_star.png\' alt=\'\' /><img src=\'".get_template_directory_uri()."/images/bullet_star.png\' alt=\'\' /><br />
-		$pointer_content  = "<h3>Did you like ".THEME_NAME." ?</h3>";
-		$pointer_content .= "<p> If you like ".THEME_NAME." theme, please don\'t forget to <a href=\'http://themeforest.net/downloads?ref=tielabs\' target=\'_blank\'><strong>rate it</strong></a> :)</p>";
+		$pointer_content  = "<h3>Did you like ".theme_name." ?</h3>";
+		$pointer_content .= "<p> If you like ".theme_name." theme, please don\'t forget to <a href=\'http://themeforest.net/downloads?ref=tielabs\' target=\'_blank\'><strong>rate it</strong></a> :)</p>";
 	?>
 	 
 		<script type="text/javascript">
@@ -90,6 +98,7 @@ function tie_admin_register() {
 	wp_register_script( 'tie-admin-colorpicker', get_template_directory_uri() . '/panel/js/colorpicker.js', array( 'jquery' ) , false , false );  
 	
 	wp_register_style( 'tie-style', get_template_directory_uri().'/panel/style.css', array(), '20120208', 'all' ); 
+	wp_register_style( 'tie-fonts', get_template_directory_uri().'/panel/fonts.css', array(), '20120208', 'all' ); 
 
 	if ( (isset( $_GET['page'] ) && $_GET['page'] == 'panel') || (  $pagenow == 'post-new.php' ) || (  $pagenow == 'post.php' )|| (  $pagenow == 'edit-tags.php' ) ) {
 		wp_enqueue_script( 'tie-admin-colorpicker');  
@@ -107,14 +116,16 @@ add_action( 'admin_enqueue_scripts', 'tie_admin_register' );
 # To change Insert into Post Text
 /*-----------------------------------------------------------------------------------*/
 function tie_options_setup() {
-    global $pagenow;
+    global $pagenow;  
+	
     if ( 'media-upload.php' == $pagenow || 'async-upload.php' == $pagenow )
         add_filter( 'gettext', 'tie_replace_thickbox_text'  , 1, 3 ); 
 } 
 add_action( 'admin_init', 'tie_options_setup' ); 
   
 function tie_replace_thickbox_text($translated_text, $text, $domain) { 
-    if ('Insert into Post' == $text) {
+    if ('Insert into Post' == $text) { 
+	
         $referer = strpos( wp_get_referer(), 'tie-settings' );
         if ( $referer != '' )
             return __('Use this image', 'tie' ); 
@@ -126,25 +137,25 @@ function tie_replace_thickbox_text($translated_text, $text, $domain) {
 /*-----------------------------------------------------------------------------------*/
 # get Google Fonts
 /*-----------------------------------------------------------------------------------*/
-// require ('google-fonts.php');
-// $google_font_array = json_decode ($google_api_output,true) ;
+require ('google-fonts.php');
+$google_font_array = json_decode ($google_api_output,true) ;
 		
-// $options_fonts=array();
-// $options_fonts[''] = "Default Font" ;
-// $fontID = 0;
-// foreach ($google_font_array as $item) {
-// 	$fontID++;
-// 	$variants='';
-// 	$variantCount=0;
-// 	foreach ($item['variants'] as $variant) {
-// 		$variantCount++;
-// 		if ($variantCount>1) { $variants .= '|'; }
-// 		$variants .= $variant;
-// 	}
-// 	$variantText = ' (' . $variantCount . ' Varaints' . ')';
-// 	if ($variantCount <= 1) $variantText = '';
-// 	$options_fonts[ $item['family'] . ':' . $variants ] = $item['family']. $variantText;
-// }
+$options_fonts=array();
+$options_fonts[''] = "Default Font" ;
+$fontID = 0;
+foreach ($google_font_array as $item) {
+	$fontID++;
+	$variants='';
+	$variantCount=0;
+	foreach ($item['variants'] as $variant) {
+		$variantCount++;
+		if ($variantCount>1) { $variants .= '|'; }
+		$variants .= $variant;
+	}
+	$variantText = ' (' . $variantCount . ' Varaints' . ')';
+	if ($variantCount <= 1) $variantText = '';
+	$options_fonts[ $item['family'] . ':' . $variants ] = $item['family']. $variantText;
+}
 
 
 /*-----------------------------------------------------------------------------------*/
@@ -179,10 +190,10 @@ function tie_save_settings ( $data , $refresh = 0 ) {
 			if(  function_exists('icl_register_string') && $option == 'tie_home_cats'){
 				foreach( $data[$option] as $item ){
 					if( !empty($item['boxid']) )
-						icl_register_string( THEME_NAME , $item['boxid'], $item['title'] );
+						icl_register_string( theme_name , $item['boxid'], $item['title'] );
 
 					if( !empty($item['type']) && $item['type'] == 'ads' && !empty($item['boxid']) )
-						icl_register_string( THEME_NAME , $item['boxid'], $item['text'] );
+						icl_register_string( theme_name , $item['boxid'], $item['text'] );
 				}
 			}
 		}
@@ -204,6 +215,7 @@ function tie_save_settings ( $data , $refresh = 0 ) {
 /*-----------------------------------------------------------------------------------*/
 add_action('wp_ajax_test_theme_data_save', 'tie_save_ajax');
 function tie_save_ajax() {
+	
 	check_ajax_referer('test-theme-data', 'security');
 	$data = $_POST;
 	$refresh = 1;
@@ -214,6 +226,7 @@ function tie_save_ajax() {
 	}
 	
 	tie_save_settings ($data , $refresh );
+	
 }
 
 
@@ -223,11 +236,12 @@ function tie_save_ajax() {
 function tie_add_admin() {
 
 	$current_page = isset( $_REQUEST['page'] ) ? $_REQUEST['page'] : '';
+
 	$icon = get_template_directory_uri().'/panel/images/general.png';
-	add_menu_page(THEME_NAME.' Settings', THEME_NAME ,'switch_themes', 'panel' , 'panel_options', $icon  );
-	$theme_page = add_submenu_page('panel',THEME_NAME.' Settings', THEME_NAME.' Settings','switch_themes', 'panel' , 'panel_options');
-	// add_submenu_page('panel', "Import Demo Data" , "Import Demo Data" ,'switch_themes', 'tie_demo_installer' , 'tie_demo_installer');
-	// add_submenu_page('panel',THEME_NAME.' Documentation', 'Documentation','switch_themes', 'docs' , 'redirect_docs');
+	add_menu_page(theme_name.' Settings', theme_name ,'switch_themes', 'panel' , 'panel_options', $icon  );
+	$theme_page = add_submenu_page('panel',theme_name.' Settings', theme_name.' Settings','switch_themes', 'panel' , 'panel_options');
+	add_submenu_page('panel', "Import Demo Data" , "Import Demo Data" ,'switch_themes', 'tie_demo_installer' , 'tie_demo_installer');
+	add_submenu_page('panel',theme_name.' Documentation', 'Documentation','switch_themes', 'docs' , 'redirect_docs');
 	//add_submenu_page('panel','Support', 'Support','switch_themes', 'support' , 'tie_get_support');
 
 
@@ -478,6 +492,8 @@ function tie_options($value){
 				</script>
 		<?php
 		break;
+		
+		
 		case 'color':
 		?>
 			<div id="<?php echo $value['id']; ?>colorSelector" class="color-pic"><div style="background-color:<?php echo tie_get_option($value['id']) ; ?>"></div></div>
@@ -501,7 +517,9 @@ function tie_options($value){
 				});
 				</script>
 		<?php
-		break;		
+		break;
+
+		
 		case 'typography':
 			$current_value = tie_get_option($value['id']);
 		?>
@@ -584,6 +602,7 @@ function tie_options($value){
 		<a class="mo-help tooltip"  title="<?php echo $value['help'] ?>"></a>
 		<?php endif; ?>
 	</div>
+			
 <?php
 }
 add_action('admin_menu', 'tie_add_admin'); 

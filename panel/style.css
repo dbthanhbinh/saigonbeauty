@@ -353,7 +353,7 @@ div.option-item select[multiple] {height: 75px;}
 	width:510px;
 	height:100px;
 }
-#sidebarsList, #customList {padding-top:10px;}
+#sidebarsList,  , #customList {padding-top:10px;}
 #sidebarsList li  , #customList li{margin: 10px 0 0;}
 #sidebarsList .widget-head  , #customList .widget-head{
 	position: relative;;
@@ -922,24 +922,3 @@ a.tooltip, a.tooldown{display:inline-block;}
 }
 #tie-static-items img { height:auto; width:150px; min-height: 80px; margin:0;}
 #tie-static-items .del-cat { bottom:10px; top:auto;}
-
-.build-home-item{
-	float: left;
-	width: 100%;
-}
-
-.build-home-item span.span-item{
-	padding-right: 5px;
-	width: 200px;
-	display: inline-block;
-	float: left;
-}
-
-.build-home-item .wp-picker-container{
-	float: left;
-}
-
-.build-home-item .wp-picker-container label{
-	padding: 0!important;
-	float: left;
-}

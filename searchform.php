@@ -1,9 +1,6 @@
-<div class="box-search-form">
-    <form role="search" method="get" id="searchform" class="searchform" action="<?= site_url() ?>">
-        <div>
-            <input type="text" placeholder="Tìm..." value="<?php echo get_query_var( 's', 'Tìm...'); ?>" name="s" id="s">
-            <input type="submit" id="searchsubmit" value="Tìm">
-            <span><i class="fa fa-search" aria-hidden="true"></i></span>
-        </div>
+<div class="get_search_form">
+    <form method="GET" action="<?php bloginfo('url');?>">
+        <input type="text" id="s" class="s" name="s" value="<?php echo get_query_var('s');?>"/>
+        <input type="submit" value="Tìm kiếm"/>
     </form>
 </div>

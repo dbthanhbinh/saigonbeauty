@@ -3,12 +3,14 @@ require ('home-cats.php');
 /*-----------------------------------------------------------------------------------*/
 # Get Home Cats Boxes
 /*-----------------------------------------------------------------------------------*/
-function tie_get_home_cats($cat_data) {
-    //print_r($cat_data);
+function tie_get_home_cats($cat_data){
+    
 	switch( $cat_data['type'] ){
-		case 'recent':
-			get_home_recent( $cat_data );
+	
+		case 'n':
+			get_home_cats( $cat_data );
 			break;
+		
 		case 's':
 			get_home_scroll( $cat_data );
 			break;
@@ -19,7 +21,11 @@ function tie_get_home_cats($cat_data) {
 			
 		case 'videos':
 			get_home_news_videos( $cat_data );
-			break;		
+			break;	
+			
+		case 'recent':
+			get_home_recent( $cat_data );
+			break;	
 		case 'homebox':
 			get_home_box_top($cat_data);
 			break;

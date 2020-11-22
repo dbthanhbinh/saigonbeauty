@@ -93,7 +93,7 @@ function tie_slider_slides(){
 
   </script>
   
- <input id="upload_add_slide" type="button" class="mpanel-save" value="Add New Slider (1920x600)">
+ <input id="upload_add_slide" type="button" class="mpanel-save" value="Add New Slide">
 
 	<ul id="tie-slider-items">
 	<?php
