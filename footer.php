@@ -38,14 +38,11 @@
 
 								</p>
 								<p>
-								    <strong>Add:</strong> 43/4 Thanh Thai Stre., Ward 14, Dist 10, HCM City
+								    <strong>Add:</strong> 43/4 Thanh Thai Street, Ward 14, Dist 10, HCM City
 								</p>
-								<!--
 								<p>
-								    <strong>Responsible for content:</strong> 
+								    <strong>Contact advertising:</strong> 0932 744 268
 								</p>
-								-->
-
 							</div>
 
 						</div>
@@ -111,8 +108,39 @@
 			</div>
 
 			<!-- End footer -->
+                       
 
-			
+
+<script src="https://sp.zalo.me/plugins/sdk.js"></script>
+
+
+
+			                                                                       <!-- Load Facebook SDK for JavaScript -->
+      <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v8.0'
+          });
+        };
+
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+      <!-- Your Chat Plugin code -->
+      <div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="1486654784898740"
+  theme_color="#20cef5"
+  logged_in_greeting="SaiGon Beauty News đã sẵn sàng hỗ trợ cho Bạn! Hãy đặt câu hỏi nhé! "
+  logged_out_greeting="SaiGon Beauty News đã sẵn sàng hỗ trợ cho Bạn! Hãy đặt câu hỏi nhé! ">
+      </div>
 
 			<!-- footer copyright-->
 
@@ -364,8 +392,7 @@
 
     	</script>
 
-        
-
+    
 	</body>
 
 	
