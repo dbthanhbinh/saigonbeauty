@@ -1,5 +1,15 @@
-<div class="ms-cols-3" id="ms-cols-3">
-	<div class="fb-page" data-href="https://www.facebook.com/Saigonbeauty.com.vn/" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/Saigonbeauty.com.vn/"><a href="https://www.facebook.com/Saigonbeauty.com.vn/">saigonbeauty</a></blockquote></div></div>
-	<?php dynamic_sidebar('primary-sidebar');?>
+<?php
+if (isMainSidebar()) : ?>
+<?php 
+    if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+        return;
+    }
+    require_once ('modules/ads/services.php');
+    require_once ('modules/ads/widget_ads.php');
+?>
+<div class="<?= isMainSidebar() ?>">
+    <div class="" id="sidebar">
+        <?php dynamic_sidebar( 'sidebar-1' ); ?>
+    </div>
 </div>
-
+<?php endif; ?>
