@@ -30,7 +30,7 @@ $meta_boxes = array();
 $meta_boxes[] = array(
 	'id'    => 'additional_info',
 	'title' => 'Thêm thông tin',
-	'pages' => array( 'post'),
+	'pages' => array( 'post', 'binh-chon'),
 
 	'fields' => array(
         		
@@ -41,6 +41,51 @@ $meta_boxes[] = array(
 			'type' => 'text',
             'std'  => 1 
 		)				
+	)
+);
+
+$meta_boxes[] = array(
+	'id'    => 'binhchon_info',
+	'title' => 'Thông tin',
+	'pages' => array( 'binh-chon'),
+
+	'fields' => array(        		
+        array(
+			'name' => 'CEO',
+			'desc' => 'Tên CEO',
+			'id'   => "{$prefix}ceo",
+			'type' => 'text',
+            'std'  => '' 
+		),
+		array(
+			'name' => 'Cú Pháp',
+			'desc' => 'Cú pháp bình chọn',
+			'id'   => "{$prefix}struct",
+			'type' => 'text',
+            'std'  => '' 
+		),
+		array(
+			'name' => 'Gửi',
+			'desc' => 'Gửi tin SMS',
+			'id'   => "{$prefix}sms_code",
+			'type' => 'text',
+            'std'  => '8100' 
+		),
+		// array(
+		// 	'name' => 'Where do you live?',
+		// 	'id'   => "{$prefix}place",
+		// 	'type' => 'select',
+		// 	// Array of 'value' => 'Label' pairs for select box
+		// 	'options' => array(
+		// 		'usa'		=> 'USA',
+		// 		'vn'		=> 'Vietnam',
+		// 	),
+		// 	// Select multiple values, optional. Default is false.
+		// 	'multiple' => true,
+		// 	// Default value, can be string (single value) or array (for both single and multiple values)
+		// 	'std'  => array( 'vn' ),
+		// 	'desc' => 'Select the current place, not in the past',
+		// ),	
 	)
 );
 
@@ -69,5 +114,58 @@ function YOUR_PREFIX_register_meta_boxes()
 // This is also helpful for some conditionals like checking page template, categories, etc.
 add_action( 'admin_init', 'YOUR_PREFIX_register_meta_boxes' );
 
-
+function listData () {
+	$pre = 'THV ';
+	$data = [
+		['CEO'=> 'NGUYỄN THỊ TỐ QUYÊN', 'STRUCT'=>$pre.'TOQUYEN' ],
+		['CEO'=> 'VOONG MIÊU THUẬN','STRUCT'=>$pre.'BALE'],
+		// 'TANTHEGIOI',
+		// 'LEHIEU',
+		// 'HUNGDONGTINH',
+		// 'HUYNGUYEN',
+		// 'SAIGONTOC',
+		// 'HOANGTRANG',
+		// 'XUANHUONG',
+		// 'ADOAN',
+		// 'NYSPA',
+		// 'QUYNHHUONG',
+		// 'MAILEE',
+		// 'KIMTUYEN',
+		// 'PHUONGHOANGANH',
+		// 'PHUONGSG',
+		// 'PHUCLINH',
+		// 'PHONGVAN',
+		// 'JASMINESPA',
+		// 'THAOVY',
+		// 'THAOTAY',
+		// 'DUCNGUYEN',
+		// 'PHUONGHAIR',
+		// 'HOANGAN',
+		// 'KHANHVINHHOANG',
+		// 'VUSALON',
+		// 'NGUYENTATTHANH',
+		// 'ROMANTIC',
+		// 'VIETBEAUTY',
+		// 'VIENTOCHIEPKY',
+		// 'VINASPA',
+		// 'LEDUNG',
+		// 'TOKYOBEAUTY',
+		// 'DUNGTRAN',
+		// 'LINHCHI',
+		// 'NHANDAO',
+		// 'TOMILUC',
+		// 'WINNIE',
+		// 'BANGKOK',
+		// 'KELLYPANG',
+		// 'COCOPANG',
+		// 'NAMKIET',
+		// 'BANGBEAUTY',
+		// 'HOAAN',
+		// 'THUYHANG',
+		// 'NGUYENDAM',
+		// 'YENBINH',
+		// 'PHUONGMAI'
+	];
+	return $data;
+}
 ?>

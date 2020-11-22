@@ -161,7 +161,7 @@ header h1:before {
 }
 
 .nav .nav-submenu > a {
-	padding-right: 30px !important;
+	padding-right: 20px !important;
 }
 
 .web-menu .nav li.menu-item-home a,
@@ -184,7 +184,7 @@ header h1:before {
 .nav .nav-submenu > a:after {
 	position: absolute;
 	display: block;
-	right: 10px;
+	right: 3px;
 	top: 1px;
 	content: "\E005";
 }

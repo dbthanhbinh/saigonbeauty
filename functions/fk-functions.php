@@ -128,6 +128,18 @@ function ws24h_tie_top_banner()
 /*--------------------------------------------------------------------------------
 Logo
 ---------------------------------------------------------------------------------*/
+function ws24h_tie_logo_bk()
+{
+    $logo = '';
+    
+    if(function_exists('tie_get_option'))
+        $logo = tie_get_option('logo');
+    if(!empty($logo))
+        return '<a class="site-logo" style="width:236px; height:92px; background-image: url('.$logo.'); background-position: left; background-repeat: no-repeat; background-size: 100%;" href="'.get_bloginfo("url").'"> </a>';
+    else
+        return '<a class="site-logo-df" href="'.get_bloginfo("url").'"> </a>';
+}
+
 function ws24h_tie_logo()
 {
     $logo = '';
@@ -135,9 +147,21 @@ function ws24h_tie_logo()
     if(function_exists('tie_get_option'))
         $logo = tie_get_option('logo');
     if(!empty($logo))
-        return '<a href="'.get_bloginfo("url").'"> <img alt="" src="'.$logo.'"/> </a>';
+        return '<a  href="'.get_bloginfo("url").'"> <img src="'.$logo.'" class="attachment-thumbnail size-thumbnail wp-post-image" alt=""> </a>';
     else
-        return '<a href="'.get_bloginfo("url").'"> <img alt="" src="'.get_template_directory_uri().'/images/logo.png"/></a>';
+        return '<a class="site-logo-df" href="'.get_bloginfo("url").'"> </a>';
+}
+
+function ws24h_tie_logo_footer()
+{
+    $logo = '';
+    
+    if(function_exists('tie_get_option'))
+        $logo = tie_get_option('logo');
+    if(!empty($logo))
+        return '<a class="site-logo" style="width:180px; height:70px; background-image: url('.$logo.'); background-position: left; background-repeat: no-repeat; background-size: 100%;" href="'.get_bloginfo("url").'"> </a>';
+    else
+        return '<a class="site-logo-df" href="'.get_bloginfo("url").'"> </a>';
 }
 
 /*--------------------------------------------------------------------------------
@@ -216,5 +240,6 @@ if(is_admin())
 
 function change_thumbnail_html( $content ) 
 {
-    return str_replace(__('Set featured image'), __('Set Image size: 700x448 px'),$content);
+    //return str_replace(__('Set featured image'), __('Set Image size: 300x200 px'),$content);
+    return str_replace(__('Đặt ảnh đại diện'), __('Đặt ảnh đại diện: 300x200 px'),$content);
 }

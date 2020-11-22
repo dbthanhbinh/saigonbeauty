@@ -8,7 +8,7 @@ if(have_posts()):
             <?php if(has_post_thumbnail()):?>								
 			<div class="item-thumb">
 				<a href="<?php the_permalink();?>" title="<?php the_title();?>">
-				    <?php the_post_thumbnail('medium');?>
+				    <?php the_post_thumbnail('thumbnail');?>
 				</a>
 			</div>
             <?php endif;?>

@@ -44,11 +44,8 @@ $save='
 			<li class="tie-tabs typography"><a href="#tab14"><span></span>Typography</a></li>
 			<li class="tie-tabs Social"><a href="#tab4"><span></span>Social Networking</a></li>
 			<li class="tie-tabs advanced"><a href="#tab10"><span></span>Advanced</a></li>
-            <li class="tie-tabs contacted"><a href="#tab20"><span></span>Contact</a></li>
-            <!--
 			<li class="tie-tabs tie-rate tie-not-tab"><a target="_blank" href="http://themeforest.net/downloads?ref=tielabs"><span></span>Rate <?php echo theme_name ?></a></li>
 			<li class="tie-tabs tie-more tie-not-tab"><a target="_blank" href="http://themeforest.net/user/tielabs/portfolio?ref=tielabs"><span></span>More Themes</a></li>
-            -->
 		</ul>
 		<div class="clear"></div>
 	</div> <!-- .mo-panel-tabs -->
@@ -2501,142 +2498,6 @@ $save='
 			</div>			
 		</div> <!-- Typography -->
 		
-        <div id="tab20" class="tab_content tabs-wrap">
-			<h2>Contact Settings</h2>	<?php echo $save ?>	
-	
-			<div class="tiepanel-item">
-				<h3>Setting contact infomation</h3>				
-				<p class="tie_message_hint">Enter all contact infomation .</p>
-
-				<?php
-				tie_options(
-                              array( 	"name" => "Company name",
-                                              "id" => "text_contact_company_name",
-                                              "type" => "text",
-                                              "extra_text" => "Enter Contact company name"));
-                tie_options(
-                              array( 	"name" => "Support name",
-                                              "id" => "text_contact_name",
-                                              "type" => "text",
-                                              "extra_text" => "Enter Contact name Person"));
-                	tie_options(
-						array(	"name" => "Support Avatar",
-								"id" => "contact_name_avatar",
-								"type" => "upload"));                              
-                
-                
-                tie_options(
-                              array( 	"name" => "Company Address",
-                                              "id" => "text_contact_company_address",
-                                              "type" => "text",
-                                              "extra_text" => "Enter Contact company address"));
-                tie_options(
-                              array( 	"name" => "Company email",
-                                              "id" => "contact_email",
-                                              "type" => "text",
-                                              "extra_text" => "Enter Contact email"));
-                tie_options(
-                              array( 	"name" => "Company phone",
-                                              "id" => "contact_company_phone",
-                                              "type" => "text",
-                                              "extra_text" => "Enter Contact company phone"));
-                
-                tie_options(
-                              array( 	"name" => "Company Hotline",
-                                              "id" => "contact_hotline",
-                                              "type" => "text",
-                                              "extra_text" => "Enter company Hot line"));
-                tie_options(
-                              array( 	"name" => "Time From T2-T6",
-                                              "id" => "contact_open_2_6",
-                                              "type" => "text",
-                                              "extra_text" => "Enter time Open Ex: 8:00 AM - 17:00 PM"));
-                tie_options(
-                              array( 	"name" => "Time From T7",
-                                              "id" => "contact_open_7",
-                                              "type" => "text",
-                                              "extra_text" => "Enter time Open Ex: 8:00 AM - 17:00 PM"));
-                                              
-                tie_options(
-                              array( 	"name" => "Time From CN",
-                                              "id" => "contact_open_cn",
-                                              "type" => "text",
-                                              "extra_text" => "Enter time Open Ex: 8:00 AM - 17:00 PM"));
-                                              
-                tie_options(
-                              array( 	"name" => "Zalo Page",
-                                              "id" => "contact_zalo",
-                                              "type" => "text",
-                                              "extra_text" => "Zalo"));
-                tie_options(
-                              array( 	"name" => "Company MST",
-                                              "id" => "contact_company_mst",
-                                              "type" => "text",
-                                              "extra_text" => "Enter Contact company MST"));                
-                
-                /*
-                tie_options(
-                              array( 	"name" => "Add More Office Build",
-                                              "id" => "office_num",
-                                              "type" => "text",
-                                              "extra_text" => "Enter number Office Build => Save changes and then Press F5 to reload")); 
-                
-                if(function_exists('tie_get_option'))
-                    $office_num = tie_get_option('office_num');
-                if($office_num)
-                {
-                    for($i=1 ; $i<=$office_num ; $i++){
-    				?>
-                    <p class="tie_message_hint">Office <?php echo $i;?> infomation .</p>
-                    <?php 
-                        tie_options(
-                                  array( 	"name" => "Company name",
-                                                  "id" => "text_contact_company_name".$i,
-                                                  "type" => "text",
-                                                  "extra_text" => "Enter Contact company name"));
-                        tie_options(
-                                      array( 	"name" => "Company Address",
-                                                      "id" => "text_contact_company_address".$i,
-                                                      "type" => "text",
-                                                      "extra_text" => "Enter Contact company address"));
-                        tie_options(
-                                      array( 	"name" => "Company email",
-                                                      "id" => "contact_email".$i,
-                                                      "type" => "text",
-                                                      "extra_text" => "Enter Contact email"));
-                        tie_options(
-                                      array( 	"name" => "Company phone",
-                                                      "id" => "contact_company_phone".$i,
-                                                      "type" => "text",
-                                                      "extra_text" => "Enter Contact company phone"));
-                        
-                        tie_options(
-                                      array( 	"name" => "Company Hotline",
-                                                      "id" => "contact_hotline".$i,
-                                                      "type" => "text",
-                                                      "extra_text" => "Enter company Hot line"));
-                    
-                    
-                    }
-                }
-                */
-                
-                ?>
-			</div>
-            
-            <div class="tiepanel-item">
-				<h3>Google Map</h3>
-				<div class="option-item">					
-                    <textarea id="text_google_map" name="tie_options[text_google_map]" style="width:100%" rows="4"><?php echo htmlspecialchars_decode(tie_get_option('text_google_map'));  ?></textarea>				
-					<span style="padding-left:0" class="extra-text"><strong style="font-size: 12px;">Variables</strong>
-						Enter Resource for google map
-					</span>
-				</div>
-			</div>
-            
-			
-
-		</div> <!-- Contact -->
 		
 		<div id="tab10" class="tab_content tabs-wrap">
 			<h2>Advanced Settings</h2>	<?php echo $save ?>	
